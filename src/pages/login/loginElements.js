@@ -1,8 +1,7 @@
-import React from "react";
 import styled from "styled-components";
-import { media_mobile } from "../utils/mediaQ/mediaQ";
+import { media_mobile } from "../../utils/mediaQ/mediaQ";
 
-const LoginContainer = styled.div`
+export const LoginContainer = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
@@ -12,7 +11,7 @@ const LoginContainer = styled.div`
   }
 `;
 
-const ImageLogin = styled.div`
+export const ImageLogin = styled.div`
   width: 50%;
   height: 100vh;
   background-color: blue;
@@ -23,14 +22,14 @@ const ImageLogin = styled.div`
     width: 100%;
   }
 `;
-const ImageContainer = styled.div`
+export const ImageContainer = styled.div`
   width: 70%;
   height: 60%;
   margin: auto;
   padding: 5%;
   border-radius: 20px;
 `;
-const FormLogin = styled.div`
+export const FormLogin = styled.div`
   width: 50%;
   height: 100vh;
   display: flex;
@@ -41,7 +40,7 @@ const FormLogin = styled.div`
   }
 `;
 
-const FormContainer = styled.div`
+export const FormContainer = styled.div`
   width: 70%;
   height: 60%;
   margin: auto;
@@ -57,7 +56,7 @@ const FormContainer = styled.div`
   }
 `;
 
-const Input = styled.input`
+export const Input = styled.input`
   width: 100%;
   height: 3rem;
   margin-top: 1rem;
@@ -67,7 +66,7 @@ const Input = styled.input`
   border-bottom: 2px solid black;
   background-color: transparent;
 `;
-const ButtonLogin = styled.button`
+export const ButtonLogin = styled.button`
   width: 80%;
   height: 3rem;
   margin-top: 1rem;
@@ -83,28 +82,3 @@ const ButtonLogin = styled.button`
     background-color: red;
   }
 `;
-const Login = () => {
-  return (
-    <LoginContainer>
-      <ImageLogin>
-        <ImageContainer>
-          <img
-            src="https://doodleipsum.com/350/flat?i=7877005830df351b1e37f3769d479f63"
-            alt="Login Img"
-          />
-        </ImageContainer>
-      </ImageLogin>
-      <FormLogin>
-        <FormContainer>
-          <form action="">
-            <Input type="text" placeholder="Usuario" />
-            <Input type="password" placeholder="Contraseña" />
-            <ButtonLogin> Entrar </ButtonLogin>
-          </form>
-        </FormContainer>
-      </FormLogin>
-    </LoginContainer>
-  );
-};
-
-export default Login;
