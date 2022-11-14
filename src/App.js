@@ -3,8 +3,7 @@ import AddDate from "./components/addDate/AddDate"
 import Turnos from "./components/turnos/Turnos";
 import RootLayout from "./components/rootLayout/RootLayout";
 import { getAuth } from "firebase/auth";
-import { app } from "./firebase/firebaseConfig";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import {
   createBrowserRouter,
