@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { DateContainer, Input } from "./addDateElements";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../../firebase/firebaseConfig";
 
-const turno = [];
+//const turno = [];
 
 const AddDate = () => {
   const [date, setDate] = useState("");
@@ -8,42 +11,48 @@ const AddDate = () => {
   const [info, setInfo] = useState("");
   const [state, setState] = useState("");
 
-  const data = (e) => {
+  const addDateHandler = async (e) => {
     e.preventDefault();
-    turno.push({
-      fecha: date,
-      hora: time,
-      detalle: info,
-      estado: state,
-    });
-    console.log(turno);
+    try {
+      const docRef = await addDoc(collection(db, "Turnos"), {
+        Nombre: info,
+        Fecha: date,
+        Hora: time,
+        Estado: state,
+      });
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+    //Agregar un toast con mensaje confirmacion
   };
   return (
-    <div>
-      <form onSubmit={data}>
-        <input
+    <DateContainer>
+      <form onSubmit={addDateHandler}>
+        <Input
           type="text"
           placeholder="Nombre"
           onChange={(e) => setInfo(e.target.value)}
         />
-        <input
+        <Input
           type="select"
           placeholder="Estado"
           onChange={(e) => setState(e.target.value)}
         />
-        <input
+
+        <Input
           type="date"
           placeholder="Fecha"
           onChange={(e) => setDate(e.target.value)}
         />
-        <input
+        <Input
           type="time"
           placeholder="Hora"
           onChange={(e) => setTime(e.target.value)}
         />
-        <input type="submit" value="Enviar" />
+        <input type="submit" value="ENVIAR" />
       </form>
-    </div>
+    </DateContainer>
   );
 };
 

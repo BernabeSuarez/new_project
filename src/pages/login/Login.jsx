@@ -10,12 +10,14 @@ import {
 } from "./loginElements";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { app } from "../../firebase/firebaseConfig";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const auth = getAuth(app);
+  const user = auth.currentUser;
 
   const LoginUser = async (e) => {
     e.preventDefault();
@@ -28,6 +30,15 @@ const Login = () => {
     }
   };
 
+  if (user) {
+    return (
+      <>
+        <Link to={`/`}>
+          <h2>Turnos</h2>
+        </Link>
+      </>
+    );
+  }
   return (
     <LoginContainer>
       <ImageLogin>
@@ -51,7 +62,7 @@ const Login = () => {
               placeholder="Contraseña"
               onChange={(e) => setPassword(e.target.value)}
             />
-            <ButtonLogin> Entrar </ButtonLogin>
+            <ButtonLogin> LOGIN </ButtonLogin>
           </form>
         </FormContainer>
       </FormLogin>

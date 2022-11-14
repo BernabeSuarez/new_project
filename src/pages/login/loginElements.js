@@ -46,7 +46,7 @@ export const FormContainer = styled.div`
   margin: auto;
   padding: 5%;
   border-radius: 20px;
-  background-color: antiquewhite;
+  background-color: #EDE8D6;
   & form {
     height: 100%;
     margin: auto;
@@ -65,6 +65,12 @@ export const Input = styled.input`
   border: none;
   border-bottom: 2px solid black;
   background-color: transparent;
+  &:focus {
+    outline:none;
+  }
+  &:active {
+    outline:none;
+  }
 `;
 export const ButtonLogin = styled.button`
   width: 80%;
@@ -75,10 +81,9 @@ export const ButtonLogin = styled.button`
   margin-right: auto;
   border-radius: 10px;
   border: none;
-  background-color: coral;
-  color: black;
+  background-color: #0000FF;
+  color: white;
   &:hover {
-    color: white;
-    background-color: red;
+    background-color: #24B9CD;
   }
 `;
