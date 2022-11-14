@@ -24,6 +24,7 @@ const Turnos = () => {
       setData(turnos);
     });
   };
+
   const deleteDate = async (id) => {
     if (window.confirm("Quieres Eliminar este cita?")) {
       await deleteDoc(doc(db, "Turnos", id));
@@ -50,11 +51,12 @@ const Turnos = () => {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow-y: scroll;
   `;
   const DataItem = styled.div`
     width: 80%;
-    margin-top: 4%;
-    margin-bottom: 4%;
+    margin-top: 2%;
+    margin-bottom: 2%;
     border-bottom: 1px solid black;
     display: flex;
     flex-direction: row;
@@ -68,8 +70,8 @@ const Turnos = () => {
   `;
   const H2 = styled.h2`
     font-size: 1.5rem;
-    margin-top: 2%;
-    margin-bottom: 2%;
+    margin-top: 1%;
+    margin-bottom: 4%;
     text-align: center;
   `;
 

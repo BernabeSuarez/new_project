@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { getAuth, signOut } from "firebase/auth";
 import { app } from "../../firebase/firebaseConfig";
+import { CalendarAdd, SignOut } from "@styled-icons/fluentui-system-filled";
+import { Calendar3 } from "@styled-icons/bootstrap";
 
 const MenuContainer = styled.div`
   width: 10%;
@@ -10,6 +12,7 @@ const MenuContainer = styled.div`
   padding-top: 5%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   background-color: blue;
   & a {
     text-decoration: none;
@@ -23,9 +26,32 @@ const MenuContainer = styled.div`
   }
 `;
 
+const CalendarIcon = styled(Calendar3)`
+  width: 2.6rem;
+  margin: auto;
+  color: #ffffff;
+`;
+const AddDate = styled(CalendarAdd)`
+  width: 3rem;
+  margin: auto;
+  color: #ffffff;
+`;
+const Signout = styled(SignOut)`
+  width: 3rem;
+  margin: auto;
+  color: #ffffff;
+  cursor: pointer;
+`;
+const H3 = styled.div`
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 1%;
+  margin-bottom: 80%;
+`;
+
 const Menu = () => {
   const auth = getAuth(app);
-  const user = auth.currentUser;
 
   const signout = () => {
     signOut(auth).then(() => {
@@ -35,34 +61,17 @@ const Menu = () => {
       // An error happened.
     });
   };
-  if (user) {
-    return (
-      <MenuContainer>
-        <Link to={`agregar_cita`}>
-          <h2>Agregar Cita</h2>
-        </Link>
-        <Link to={`login`}>
-          <h2>Login</h2>
-        </Link>
-        <Link to={`/`}>
-          <h2>Turnos</h2>
-        </Link>
 
-        <h2 onClick={signout}>Salir</h2>
-      </MenuContainer>
-    );
-  }
   return (
     <MenuContainer>
-      <Link to={`agregar_cita`}>
-        <h2>Agregar Cita</h2>
-      </Link>
-      <Link to={`login`}>
-        <h2>Login</h2>
-      </Link>
+      <H3>Agenda de Citas</H3>
       <Link to={`/`}>
-        <h2>Turnos</h2>
+        <CalendarIcon />
       </Link>
+      <Link to={`agregar_cita`}>
+        <AddDate />
+      </Link>
+      <Signout onClick={signout} />
     </MenuContainer>
   );
 };
