@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { CalendarAdd, SignOut } from "@styled-icons/fluentui-system-filled";
-import { Calendar3 } from "@styled-icons/bootstrap";
+import { BsCalendar3, BsCalendarPlus } from "react-icons/bs";
+import { GoSignOut } from "react-icons/go";
 
 
 export const MenuContainer = styled.div`
@@ -12,35 +12,29 @@ export const MenuContainer = styled.div`
   align-items: center;
   background-color: blue;
   & a {
-    text-decoration: none;
-    color: white;
-    margin: 10%;
+    margin: 15%;
   }
-  & h2 {
-    cursor: pointer;
-    color: white;
-    margin: 10%;
-  }
+ 
 `;
 
-export const CalendarIcon = styled(Calendar3)`
-  width: 2.6rem;
+export const CalendarIcon = styled(BsCalendar3)`
+  font-size: 2.5rem;
   margin: auto;
   color: #ffffff;
   &:hover{
     color: lightgreen;
   }
 `;
-export const AddDate = styled(CalendarAdd)`
-  width: 3rem;
+export const AddDate = styled(BsCalendarPlus)`
+  font-size: 2.5rem;
   margin: auto;
   color: #ffffff;
   &:hover{
     color: lightgreen;
   }
 `;
-export const Signout = styled(SignOut)`
-  width: 3rem;
+export const Signout = styled(GoSignOut)`
+  font-size: 2.5rem;
   margin: auto;
   color: #ffffff;
   cursor: pointer;

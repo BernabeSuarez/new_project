@@ -13,6 +13,7 @@ const AddDate = () => {
 
   const addDateHandler = async (e) => {
     e.preventDefault();
+
     try {
       const docRef = await addDoc(collection(db, "Turnos"), {
         Nombre: info,
@@ -20,10 +21,12 @@ const AddDate = () => {
         Hora: time,
         Observaciones: obs,
       });
+
       console.log("Document written with ID: ", docRef.id);
     } catch (e) {
       console.error("Error adding document: ", e);
     }
+
     alert("Turno Agendado");
     setDate("");
     setTime("");

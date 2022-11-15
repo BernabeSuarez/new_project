@@ -44,7 +44,7 @@ export const DataItem = styled.div`
   `;
 export const DelIcon = styled(BsTrash)`
     color: red;
-    margin-rigth: 3%;
+    margin-right: 3%;
     font-size: 1.5rem;
     cursor: pointer;
   `;
