@@ -7,9 +7,15 @@ import {
   deleteDoc,
 } from "firebase/firestore";
 import { db } from "../../firebase/firebaseConfig";
-import styled from "styled-components";
-
-import { BsTrash } from "react-icons/bs";
+import {
+  Container,
+  H2,
+  DataContainer,
+  DataTitle,
+  DataItem,
+  Name,
+  DelIcon,
+} from "./turnosElements";
 
 const Turnos = () => {
   /* Getting the current date and converting it to a string. */
@@ -50,55 +56,8 @@ const Turnos = () => {
     console.log("Loading Data...");
   }, []);
 
-  /*-------------------------------------------------------------------*/
-  const Container = styled.div`
-    width: 90%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  `;
-  const DataContainer = styled.div`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow-y: scroll;
-  `;
-  const DataItem = styled.div`
-    width: 80%;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    border-bottom: 1px solid black;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  `;
-  const DelIcon = styled(BsTrash)`
-    color: red;
-    font-size: 1.5rem;
-    cursor: pointer;
-  `;
-  const H2 = styled.h2`
-    font-size: 1.5rem;
-    margin-top: 1%;
-    margin-bottom: 4%;
-    text-align: center;
-  `;
-  const DataTitle = styled.div`
-    width: 80%;
-    margin-bottom: 2%;
-    padding: 1%;
-    border: 1px solid black;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  `;
-
+  /* Checking if the data array is empty. If it is, then it will return the message "No hay citas
+ agendadas". */
   if (data.length === 0) {
     return (
       <Container>
@@ -107,6 +66,8 @@ const Turnos = () => {
       </Container>
     );
   }
+
+  /* Sorting the data array by date. */
   data.sort((a, b) => {
     if (a.Fecha < b.Fecha) {
       return -1;
@@ -116,8 +77,6 @@ const Turnos = () => {
     }
     return 0;
   });
-
-  console.log(data);
 
   return (
     <Container>
@@ -133,7 +92,7 @@ const Turnos = () => {
 
         {data.map((item) => (
           <DataItem key={item.id}>
-            <h2>{item.Nombre}</h2>
+            <Name>{item.Nombre}</Name>
             <h5>{item.Observaciones}</h5>
             <h3>{item.Fecha}</h3>
             <h4>{item.Hora}</h4>

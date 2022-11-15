@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { DateContainer, Input } from "./addDateElements";
+import { DateContainer, Input, FormAdd, Button } from "./addDateElements";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../firebase/firebaseConfig";
 
@@ -24,34 +24,49 @@ const AddDate = () => {
     } catch (e) {
       console.error("Error adding document: ", e);
     }
+    alert("Turno Agendado");
+    setDate("");
+    setTime("");
+    setInfo("");
+    setObs("");
+
     //Agregar un toast con mensaje confirmacion
   };
   return (
     <DateContainer>
-      <form onSubmit={addDateHandler}>
-        <Input
-          type="text"
-          placeholder="Nombre"
-          onChange={(e) => setInfo(e.target.value)}
-        />
-        <Input
-          type="select"
-          placeholder="Observaciones"
-          onChange={(e) => setObs(e.target.value)}
-        />
-
-        <Input
-          type="date"
-          placeholder="Fecha"
-          onChange={(e) => setDate(e.target.value)}
-        />
-        <Input
-          type="time"
-          placeholder="Hora"
-          onChange={(e) => setTime(e.target.value)}
-        />
-        <input type="submit" value="ENVIAR" />
-      </form>
+      <FormAdd>
+        <form onSubmit={addDateHandler}>
+          <label>Nombre</label>
+          <Input
+            type="text"
+            placeholder="Nombre"
+            value={info}
+            onChange={(e) => setInfo(e.target.value)}
+          />
+          <label>Observaciones</label>
+          <Input
+            type="select"
+            value={obs}
+            placeholder="Observaciones"
+            onChange={(e) => setObs(e.target.value)}
+          />
+          <label>Fecha</label>
+          <Input
+            type="date"
+            placeholder="Fecha"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+          />
+          <label>Hora</label>
+          <Input
+            type="time"
+            placeholder="Hora"
+            value={time}
+            onChange={(e) => setTime(e.target.value)}
+          />
+          <Button> Agendar</Button>
+        </form>
+      </FormAdd>
     </DateContainer>
   );
 };

@@ -19,6 +19,9 @@ justify-content:center;
 align-items:center;
 flex-direction:column;
 background-color:beige;
+& form {
+  display: row;
+}
 
 `
 
@@ -38,12 +41,11 @@ export const Input = styled.input`
   }
 `;
 export const Button = styled.button`
-  width: 100%;
+  width: 50%;
   height: 3rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 50%;;
   border-radius: 10px;
   border: none;
   background-color: #0000FF;
