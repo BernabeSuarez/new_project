@@ -88,6 +88,16 @@ const Turnos = () => {
     margin-bottom: 4%;
     text-align: center;
   `;
+  const DataTitle = styled.div`
+    width: 80%;
+    margin-bottom: 2%;
+    padding: 1%;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  `;
 
   if (data.length === 0) {
     return (
@@ -113,13 +123,20 @@ const Turnos = () => {
     <Container>
       <H2>Agenda de Turnos</H2>
       <DataContainer>
+        <DataTitle>
+          <h4>Nombre</h4>
+          <h4>Observaciones</h4>
+          <h4>Fecha</h4>
+          <h4>Hora</h4>
+          <h4>Eliminar</h4>
+        </DataTitle>
+
         {data.map((item) => (
           <DataItem key={item.id}>
             <h2>{item.Nombre}</h2>
-            <h5>{item.Estado}</h5>
+            <h5>{item.Observaciones}</h5>
             <h3>{item.Fecha}</h3>
             <h4>{item.Hora}</h4>
-            <h4>{item.id}</h4>
 
             <DelIcon onClick={() => deleteDate(item.id)} />
           </DataItem>

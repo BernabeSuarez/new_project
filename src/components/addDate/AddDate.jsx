@@ -9,7 +9,7 @@ const AddDate = () => {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [info, setInfo] = useState("");
-  const [state, setState] = useState("");
+  const [obs, setObs] = useState("");
 
   const addDateHandler = async (e) => {
     e.preventDefault();
@@ -18,7 +18,7 @@ const AddDate = () => {
         Nombre: info,
         Fecha: date,
         Hora: time,
-        Estado: state,
+        Observaciones: obs,
       });
       console.log("Document written with ID: ", docRef.id);
     } catch (e) {
@@ -36,8 +36,8 @@ const AddDate = () => {
         />
         <Input
           type="select"
-          placeholder="Estado"
-          onChange={(e) => setState(e.target.value)}
+          placeholder="Observaciones"
+          onChange={(e) => setObs(e.target.value)}
         />
 
         <Input
