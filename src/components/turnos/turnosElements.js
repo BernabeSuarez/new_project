@@ -24,14 +24,27 @@ export const DataItem = styled.div`
     margin-top: 1%;
     margin-bottom: 1%;
     padding-bottom: 1%;
+    padding-left:1%;
     border-bottom: 1px solid black;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    & h5{
+      width: 25%;
+    }
+    & h4{
+      width: 25%;
+    }
+    & h3{
+      width: 25%;
+    }& h2{
+      width: 25%;
+    }
   `;
 export const DelIcon = styled(BsTrash)`
     color: red;
+    margin-rigth: 3%;
     font-size: 1.5rem;
     cursor: pointer;
   `;
