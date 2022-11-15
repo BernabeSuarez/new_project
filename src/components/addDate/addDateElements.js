@@ -19,6 +19,7 @@ justify-content:center;
 align-items:center;
 flex-direction:column;
 background-color:beige;
+border-radius: 12px;
 & form {
   display: row;
 }
@@ -32,7 +33,8 @@ export const Input = styled.input`
   margin-bottom: 1rem;
   padding: 2%;
   border-bottom: 2px solid black;
-  background-color: transparent;
+  background-color: white;
+  border-radius:8px;
   &:focus {
     outline:none;
   }
@@ -54,4 +56,11 @@ export const Button = styled.button`
     background-color: #24B9CD;
   }
 `;
+
+export const H2 = styled.h2`
+    font-size: 1.5rem;
+    margin-top: 3%;
+    margin-bottom: 1%;
+    text-align: center;
+  `;
 

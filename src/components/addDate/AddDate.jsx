@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { DateContainer, Input, FormAdd, Button } from "./addDateElements";
+import { DateContainer, Input, FormAdd, Button, H2 } from "./addDateElements";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../firebase/firebaseConfig";
 
@@ -34,6 +34,7 @@ const AddDate = () => {
   };
   return (
     <DateContainer>
+      <H2>Agregar Turnos</H2>
       <FormAdd>
         <form onSubmit={addDateHandler}>
           <label>Nombre</label>

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { media_mobile } from "../../utils/mediaQ/mediaQ";
 
+
 export const LoginContainer = styled.div`
   width: 100%;
   height: 100vh;
@@ -57,6 +58,7 @@ export const FormContainer = styled.div`
 `;
 
 export const Input = styled.input`
+position: relative;
   width: 100%;
   height: 3rem;
   margin-top: 1rem;
@@ -71,8 +73,10 @@ export const Input = styled.input`
   &:active {
     outline:none;
   }
+ 
 `;
 export const ButtonLogin = styled.button`
+  position: relative;
   width: 80%;
   height: 3rem;
   margin-top: 1rem;
@@ -87,3 +91,4 @@ export const ButtonLogin = styled.button`
     background-color: #24B9CD;
   }
 `;
+

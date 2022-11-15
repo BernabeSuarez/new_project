@@ -57,11 +57,13 @@ const Login = () => {
               placeholder="Usuario"
               onChange={(e) => setEmail(e.target.value)}
             />
+
             <Input
               type="password"
               placeholder="Contraseña"
               onChange={(e) => setPassword(e.target.value)}
             />
+
             <ButtonLogin> LOGIN </ButtonLogin>
           </form>
         </FormContainer>
