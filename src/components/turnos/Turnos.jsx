@@ -12,8 +12,18 @@ import styled from "styled-components";
 import { BsTrash } from "react-icons/bs";
 
 const Turnos = () => {
+  /* Getting the current date and converting it to a string. */
+  const fechaActual = Date.now();
+  const hoy = new Date(fechaActual);
+  const diaDeHoy = hoy.toLocaleDateString();
+
+  console.log(diaDeHoy);
   const [data, setData] = useState([]);
 
+  /**
+   * GetData() is an async function that queries the database and returns the data in the form of an
+   * array of objects.
+   */
   const getData = async () => {
     const q = query(collection(db, "Turnos"));
     onSnapshot(q, (querySnapshot) => {
@@ -25,12 +35,16 @@ const Turnos = () => {
     });
   };
 
+  /**
+   * If the user confirms the deletion, then delete the document from the database.
+   */
   const deleteDate = async (id) => {
     if (window.confirm("Quieres Eliminar este cita?")) {
       await deleteDoc(doc(db, "Turnos", id));
       console.log("Cita Eliminada");
     }
   };
+  /* A hook that is called when the component is mounted. */
   useEffect(() => {
     getData();
     console.log("Loading Data...");
@@ -83,6 +97,18 @@ const Turnos = () => {
       </Container>
     );
   }
+  data.sort((a, b) => {
+    if (a.Fecha < b.Fecha) {
+      return -1;
+    }
+    if (a.Fecha > b.Fecha) {
+      return 1;
+    }
+    return 0;
+  });
+
+  console.log(data);
+
   return (
     <Container>
       <H2>Agenda de Turnos</H2>
